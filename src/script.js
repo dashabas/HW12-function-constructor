@@ -1,3 +1,6 @@
+// Первый вариант реализации
+console.log('--------#1')
+
 // Размер гамбургера (size)
 const SIZE_SMALL = 'small';
 const SIZE_MEDIUM = 'medium';
@@ -76,21 +79,121 @@ console.log('Calories with sauce: ' + hamburger.getCalories());
 
 
 
+// Второй вариант реализации
+console.log('--------#2')
+
+// Размер гамбургера (size)
+const SIZE_SMALL1 = {
+    price: 50,
+    calories: 20,
+}
+
+const SIZE_MEDIUM1 = {
+    price: 75,
+    calories: 30,
+}
+const SIZE_LARGE1 = {
+    price: 100,
+    calories: 40,
+}
+
+// Начинки (modifier)
+const CHEESE1 = {
+    price: 10,
+    calories: 20,
+}
+const SALAD1 = {
+    price: 20,
+    calories: 5,
+}
+const POTATO1 = {
+    price: 15,
+    calories: 10,
+}
+const SPRINKLE_SEASONING1 = {
+    price: 15,
+    calories: 0,
+}
+const TOPPING_MAYO1 = {
+    price: 20,
+    calories: 5,
+}
+
+// Функция-конструктор Hamburger
+function Hamburger1(size) {
+    this.price = size.price;
+    this.calories =size.calories;
+
+    this.addModifier1 = function(modifier){
+        this.price += modifier.price;
+        this.calories += modifier.calories;
+    }
+
+    this.getPrice1 = function() {
+        return this.price;
+    }
+
+    this.getCalories1 = function() {
+        return this.calories;
+    }
+}
+
+const hamburger1 = new Hamburger1(SIZE_SMALL1);
+
+// добавляем добавки
+hamburger1.addModifier1(TOPPING_MAYO1);
+hamburger1.addModifier1(POTATO1);
+
+// вывод результата
+console.log('Price with sauce: ' + hamburger1.getPrice1());
+console.log('Calories with sauce: ' + hamburger1.getCalories1());
 
 
 
+// Третий вариант реализации (сама функция-конструткор аналогична второму варианту)
+console.log('--------#3')
 
+// Размеры бургера
+const burgerSizes = {
+    SIZE_SMALL: {price: 50, calories: 20},
+    SIZE_MEDIUM: {price: 75, calories: 30},
+    SIZE_LARGE: {price: 100, calories: 40}
+}
 
+// Начинки
+const modifiers = {
+    CHEESE: {price: 10, calories: 20},
+    SALAD: {price: 20, calories: 5},
+    POTATO: {price: 15, calories: 10},
+    SPRINKLE_SEASONING: {price: 15, calories: 0},
+    TOPPING_MAYO: {price: 20, calories: 5}
+}
 
+// Функция-конструктор Hamburger
+function Hamburger2(size) {
+    this.price = size.price;
+    this.calories = size.calories;
 
+    this.addModifier2 = function(modifier){
+        this.price += modifier.price;
+        this.calories += modifier.calories;
+    }
 
+    this.getPrice2 = function() {
+        return this.price;
+    }
 
+    this.getCalories2 = function() {
+        return this.calories;
+    }
+}
 
+const hamburger2 = new Hamburger2(burgerSizes.SIZE_SMALL);
 
+// добавляем добавки
+hamburger2.addModifier2(modifiers.TOPPING_MAYO);
+hamburger2.addModifier2(modifiers.POTATO);
 
-
-
-
-
-
-
+// вывод результата
+console.log('Price with sauce: ' + hamburger2.getPrice2());
+console.log('Calories with sauce: ' + hamburger2.getCalories2());
