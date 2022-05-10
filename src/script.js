@@ -10,10 +10,8 @@ const POTATO = 'potato';
 const SPRINKLE_SEASONING = 'sprinkle seasoning';
 const TOPPING_MAYO = 'topping mayo';
 
-
 // Функция-конструктор Hamburger
 function Hamburger(size) {
-
     this.price = 0;
     this.calories = 0;
 
@@ -33,7 +31,6 @@ function Hamburger(size) {
     }
 
     this.addModifier = function(modifier) {
-
         switch (modifier) {
             case 'cheese':
                 this.price += 10;
@@ -56,7 +53,6 @@ function Hamburger(size) {
                 this.calories += 5;
                 break;
         }
-
     }
 
     this.getPrice = function() {
@@ -66,9 +62,7 @@ function Hamburger(size) {
     this.getCalories = function() {
         return this.calories;
     }
-
 }
-
 
 const hamburger = new Hamburger(SIZE_SMALL);
 
