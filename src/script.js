@@ -1,52 +1,30 @@
 // Размеры гамбургера (size)
-const SIZE_SMALL = {
-    price: 50,
-    calories: 20,
-}
-const SIZE_MEDIUM = {
-    price: 75,
-    calories: 30,
-}
-const SIZE_LARGE = {
-    price: 100,
-    calories: 40,
-}
+const SIZE_SMALL = {name: 'small burger', price: 50, calories: 20};
+const SIZE_MEDIUM = {name: 'medium burger', price: 75, calories: 30};
+const SIZE_LARGE = {name: 'large burger', price: 100, calories: 40};
 
 // Начинки (modifiers)
-const CHEESE = {
-    price: 10,
-    calories: 20,
-}
-const SALAD = {
-    price: 20,
-    calories: 5,
-}
-const POTATO = {
-    price: 15,
-    calories: 10,
-}
-const SPRINKLE_SEASONING = {
-    price: 15,
-    calories: 0,
-}
-const TOPPING_MAYO = {
-    price: 20,
-    calories: 5,
-}
+const CHEESE = {name: 'cheese', price: 10, calories: 20};
+const SALAD = {name: 'salad', price: 20, calories: 5};
+const POTATO = {name: 'potato', price: 15, calories: 10};
+const SPRINKLE_SEASONING = {name: 'sprinkle seasoning', price: 15, calories: 0};
+const TOPPING_MAYO = {name: 'topping mayo', price: 20, calories: 5};
 
 // Функция-конструктор Hamburger
 function Hamburger(size) {
-    this.price = size.price;
-    this.calories = size.calories;
+    this.size = size;
+    this.price = this.size.price;
+    this.calories = this.size.calories;
+    this.modifiers = [];
 
     this.addModifier = function(modifier){
-        this.modifier = modifier;
-        this.price += this.modifier.price;
-        this.calories += this.modifier.calories;
+        this.price += modifier.price;
+        this.calories += modifier.calories;
+        this.modifiers.push(modifier);
     }
 
     this.getPrice = function() {
-        return this.price;
+        return this.price
     }
 
     this.getCalories = function() {
