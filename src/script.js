@@ -40,8 +40,9 @@ function Hamburger(size) {
     this.calories = size.calories;
 
     this.addModifier = function(modifier){
-        this.price += modifier.price;
-        this.calories += modifier.calories;
+        this.modifier = modifier;
+        this.price += this.modifier.price;
+        this.calories += this.modifier.calories;
     }
 
     this.getPrice = function() {
@@ -59,6 +60,6 @@ const hamburger = new Hamburger(SIZE_SMALL);
 hamburger.addModifier(TOPPING_MAYO);
 hamburger.addModifier(POTATO);
 
-// вывод результата
+// // вывод результата
 console.log('Price with sauce: ' + hamburger.getPrice());
 console.log('Calories with sauce: ' + hamburger.getCalories());
